@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Page not found - The SHARP Docs</title>
-        <base href="/">
+        <title>Making Cairo PIEs - The SHARP Docs</title>
 
 
         <!-- Custom HTML head -->
@@ -153,13 +152,58 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                        <h1 id="making-cairo-pies"><a class="header" href="#making-cairo-pies">Making Cairo PIEs</a></h1>
+<p>Making a Cairo PIE is much easier than making a real pie, as demonstrated by the following steps:</p>
+<ol>
+<li>
+<p>Install <a href="https://docs.swmansion.com/scarb/"><code>Scarb</code></a>:</p>
+<pre><code> curl --proto '=https' --tlsv1.2 -sSf https://docs.swmansion.com/scarb/install.sh | sh
+</code></pre>
+</li>
+<li>
+<p>Create a new Cairo project:</p>
+<pre><code> scarb new cairo_pie_example
+ cd cairo_pie_example
+</code></pre>
+</li>
+<li>
+<p>Add the following to your project's <code>Scarb.toml</code>:</p>
+<pre><code> [cairo]
+ enable-gas = false
+</code></pre>
+</li>
+<li>
+<p>Compile your project:</p>
+<pre><code> scarb build
+</code></pre>
+</li>
+<li>
+<p>Install <a href="https://github.com/lambdaclass/cairo-vm/tree/main/cairo1-run"><code>cairo-vm/cairo1-run</code></a>:</p>
+<pre><code> git clone https://github.com/lambdaclass/cairo-vm.git
+ cd cairo-vm/cairo1-run
+ make deps
+</code></pre>
+</li>
+<li>
+<p>Generate your project's Cairo PIE:</p>
+<pre><code> cargo run ../../target/dev/cairo_pie_example.sierra.json \
+         --append_return_values \
+         --layout=small \
+         --cairo_pie_output=pie.zip
+</code></pre>
+</li>
+<li>
+<p>Bon appétit! 🥧</p>
+</li>
+</ol>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="cairo-sharp.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
 
                         <div style="clear: both"></div>
@@ -168,6 +212,9 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="cairo-sharp.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
             </nav>
 
